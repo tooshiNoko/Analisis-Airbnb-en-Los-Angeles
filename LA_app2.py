@@ -40,70 +40,44 @@ def show_home():
                     """)
     
     with st.expander("Historia de Los Ángeles"):
-        st.write("Los Ángeles es una ciudad conocida por su clima soleado, sus playas y su industria del entretenimiento, especialmente el cine y la televisión.")
+        st.write("Los Ángeles es una ciudad conocida por su clima soleado, sus playas y su industria del entretenimiento, especialmente el cine y la televisión. Es la ciudad más poblada de California y la segunda del país.")
 
     with st.expander("Ruta de los Vecindarios"):
-        st.write("Los vecindarios en Los Ángeles ofrecen una diversidad única, desde áreas urbanas hasta zonas más residenciales.")
+        st.write("Los vecindarios en Los Ángeles ofrecen una diversidad única, desde áreas urbanas hasta zonas más residenciales. Quizás los barrios más exclusivos y conocidos sean Bel-Air, Hollywood y Beverly hills.")
         #st.image('data/la_neighborhoods.jpg', caption='Barrios de Los Ángeles')
     
-    with st.expander("Dasbhoard Los Angeles"):
+    with st.expander("Wordcloud"):
         show_dashboard()
 
 def show_analysis():
     st.title("Analysis")
     st.header("Choose an analysis to view:")
 
-    analysis_option = st.selectbox(
-        "Select an analysis:",
-        ["Distribution by neighborhood", "Room type distribution", "Price distribution", "Interactive Map"]
-    )
-
-    if analysis_option == "Distribution by neighborhood":
-        show_neighborhood_distribution()
-    elif analysis_option == "Room type distribution":
-        show_room_type_distribution()
-    elif analysis_option == "Price distribution":
-        show_price_distribution()
+     # URL del dashboard de Power BI
+    power_bi_url = "https://app.powerbi.com/view?r=eyJrIjoiZjA4MDYzYzUtMGIyOS00ODRlLTkyZGMtY2UyZjAzMThkNjg5IiwidCI6ImE3ZTcxOTUwLTBhZjAtNDA2Mi1hZDFjLTMxMDMxNTExYzVhNiIsImMiOjl9"
+    
+    # Mostrar el iframe del dashboard de Power BI
+    st.components.v1.iframe(power_bi_url, height=600)
 
 def show_interactive_map():
     st.title("Interactive Map")
     show_interactive_map()
 
 def show_dashboard():
-    st.title("Dashboard Los Angeles Airbnb Data Analysis")
-    st.write("A continuación se muestra el dashboard de Power BI:")
+    st.title("WordCloud de Amenities")
+    st.write("A continuación se muestram los amenities más ofrecidos")
     
-    # URL del dashboard de Power BI
-    power_bi_url = "https://app.powerbi.com/view?r=eyJrIjoiNWQ2ZDBiNmYtMmY1NC00YTkyLWE3MTQtYmIwMmY3YzZjYWE2IiwidCI6IjhhZWJkZGI2LTM0MTgtNDNhMS1hMjU1LWI5NjQxODZlY2M2NCIsImMiOjl9"
-    
-    # Mostrar el iframe del dashboard de Power BI
-    st.components.v1.iframe(power_bi_url, height=600)
 
-
-# Función para mostrar la distribución por barrio
-def show_neighborhood_distribution():
-    st.header("Distribution by neighborhood")
-    # Aquí irá el código para graficar la distribución por barrio con filtros
-
-# Función para mostrar la distribución por tipo de habitación
-def show_room_type_distribution():
-    st.header("Room type distribution")
-    # Aquí irá el código para graficar la distribución por tipo de habitación con filtros
-
-# Función para mostrar la distribución de precios
-def show_price_distribution():
-    st.header("Price distribution")
-    # Aquí irá el código para graficar la distribución de precios con filtros
 
 # Función para mostrar el mapa interactivo
 def show_interactive_map():
     
     st.header("Análisis de Datos de Airbnb en Los Ángeles")
-    st.write('Aquí ponemos los graficos con los mapas')
+    st.write('Aquí podrás visualizar el mapa de Los Angeles y aplicar diversos filtros')
     
     # Ejemplo de integración de un mapa usando Folium y Streamlit-Folium
     columns_to_load = ['latitude', 'longitude', 'name', 'host_name', 'price', 'bedrooms','neighbourhood_group', 'neighbourhood','price_level','antiguedad_ex','accommodates','has_pet', 'review_scores_rating','room_type']
-    listings = pd.read_csv('LA-Airbnb\data\LA_clean.csv', usecols=columns_to_load)
+    listings = pd.read_csv(r'C:\Users\leo21\Desktop\Upgrade_hub\modulo2\proyecto_2\LA_clean.csv', usecols=columns_to_load)
     # Dividir la pantalla en dos columnas
     map_column, filter_column = st.columns([3, 1])
     
@@ -147,6 +121,7 @@ def show_interactive_map():
 
     
 # Definir el contenido de la barra lateral (sidebar)
+st.sidebar.image('LA-Airbnb\data\LA_clean.csv', width=150)
 st.sidebar.title("Navigation")
 page_options = ["Home", "Analysis", "Interactive Map"]
 page_selection = st.sidebar.radio("Go to", page_options)
