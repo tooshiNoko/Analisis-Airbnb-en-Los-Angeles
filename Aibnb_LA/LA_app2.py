@@ -74,7 +74,7 @@ def show_dashboard():
     st.write("A continuación se muestra el dashboard de Power BI:")
     
     # URL del dashboard de Power BI
-    power_bi_url = "https://app.powerbi.com/view?r=eyJrIjoiZjA4MDYzYzUtMGIyOS00ODRlLTkyZGMtY2UyZjAzMThkNjg5IiwidCI6ImE3ZTcxOTUwLTBhZjAtNDA2Mi1hZDFjLTMxMDMxNTExYzVhNiIsImMiOjl9"
+    power_bi_url = "https://app.powerbi.com/view?r=eyJrIjoiNWQ2ZDBiNmYtMmY1NC00YTkyLWE3MTQtYmIwMmY3YzZjYWE2IiwidCI6IjhhZWJkZGI2LTM0MTgtNDNhMS1hMjU1LWI5NjQxODZlY2M2NCIsImMiOjl9"
     
     # Mostrar el iframe del dashboard de Power BI
     st.components.v1.iframe(power_bi_url, height=600)
