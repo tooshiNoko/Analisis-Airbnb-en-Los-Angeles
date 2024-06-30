@@ -1,4 +1,4 @@
-#🏠 Análisis de Datos de Airbnb en Los Ángeles
+# 🏠 Análisis de Datos de Airbnb en Los Ángeles
 Bienvenido a nuestro proyecto de análisis de datos de Airbnb en Los Ángeles! 🌴
 
 Este proyecto tiene como objetivo comprender las tendencias del mercado de alquileres a corto plazo en Los Ángeles, identificando los barrios más populares, los tipos de alojamiento más demandados y los precios promedio, utilizando la plataforma Streamlit.
