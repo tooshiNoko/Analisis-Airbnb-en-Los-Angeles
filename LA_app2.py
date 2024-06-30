@@ -10,17 +10,17 @@ from streamlit_folium import st_folium
 st.set_page_config(page_title="LA Airbnb Analysis", layout="wide")
 
 # Show the page title and description.
-st.title("🏠 Los Angeles - Airbnb dataset")
+st.title("🏠 Los Ángeles - Airbnb dataset")
 st.write(
 """
-Esta aplicación permite explorar los datos de los alojamientos de Airbnb en Los Angeles.
+Esta aplicación permite explorar los datos de los alojamientos de Airbnb en Los Ángeles.
 Utilizamos el conjunto de datos de [Inside Airbnb](http://insideairbnb.com/get-the-data.html).
 """
 )
 # Función para cargar el archivo listings.csv localmente
 @st.cache_data
 def load_data():
-    return pd.read_csv('LA-Airbnb\data\LA_clean.csv')
+    return pd.read_csv(r'LA-Airbnb\data\LA_clean.csv')
 
 # Cargar los datos
 LA = load_data()
@@ -29,7 +29,7 @@ LA = load_data()
 
 # Definir las funciones para cada página
 def show_home():
-    st.title("Home")
+    st.title("Inicio")
     st.header("Bienvenido al Análisis de Airbnb en Los Ángeles")
     st.write("Utilice el menú lateral para navegar a través de diferentes secciones y obtener información específica.")
     #st.image('data/los_angeles.jpg', caption='Los Ángeles')
@@ -38,11 +38,13 @@ def show_home():
         st.markdown("""
                     Los datos utilizados en este proyecto han sido proporcionados por InsideAirbnb. Este dataset tiene múltiples columnas que detallan las propiedades de Airbnb en Los Ángeles.
                     """)
+        st.image(r'LA-Airbnb\.images\variables.jpg')
+        
     
     with st.expander("Historia de Los Ángeles"):
         st.write("Los Ángeles es una ciudad conocida por su clima soleado, sus playas y su industria del entretenimiento, especialmente el cine y la televisión. Es la ciudad más poblada de California y la segunda del país.")
 
-    with st.expander("Ruta de los Vecindarios"):
+    with st.expander("Ruta de los vecindarios"):
         st.write("Los vecindarios en Los Ángeles ofrecen una diversidad única, desde áreas urbanas hasta zonas más residenciales. Quizás los barrios más exclusivos y conocidos sean Bel-Air, Hollywood y Beverly hills.")
         #st.image('data/la_neighborhoods.jpg', caption='Barrios de Los Ángeles')
     
@@ -50,34 +52,34 @@ def show_home():
         show_dashboard()
 
 def show_analysis():
-    st.title("Analysis")
-    st.header("Choose an analysis to view:")
+    st.title("Análisis")
+    st.header("Escoge un dashboard para investigar")
 
      # URL del dashboard de Power BI
-    power_bi_url = "https://app.powerbi.com/view?r=eyJrIjoiZjA4MDYzYzUtMGIyOS00ODRlLTkyZGMtY2UyZjAzMThkNjg5IiwidCI6ImE3ZTcxOTUwLTBhZjAtNDA2Mi1hZDFjLTMxMDMxNTExYzVhNiIsImMiOjl9"
+    power_bi_url = "https://app.powerbi.com/view?r=eyJrIjoiNWQ2ZDBiNmYtMmY1NC00YTkyLWE3MTQtYmIwMmY3YzZjYWE2IiwidCI6IjhhZWJkZGI2LTM0MTgtNDNhMS1hMjU1LWI5NjQxODZlY2M2NCIsImMiOjl9"
     
     # Mostrar el iframe del dashboard de Power BI
     st.components.v1.iframe(power_bi_url, height=600)
 
 def show_interactive_map():
-    st.title("Interactive Map")
+    st.title("Mapa interactivo")
     show_interactive_map()
 
 def show_dashboard():
     st.title("WordCloud de Amenities")
-    st.write("A continuación se muestram los amenities más ofrecidos")
-    
+    st.write("A continuación se muestran los amenities más ofrecidos")
+    st.image(r'LA-Airbnb\.images\wordcloud.png')
 
 
 # Función para mostrar el mapa interactivo
 def show_interactive_map():
     
     st.header("Análisis de Datos de Airbnb en Los Ángeles")
-    st.write('Aquí podrás visualizar el mapa de Los Angeles y aplicar diversos filtros')
+    st.write('Aquí podrás visualizar el mapa de Los Ángeles y aplicar diversos filtros')
     
     # Ejemplo de integración de un mapa usando Folium y Streamlit-Folium
     columns_to_load = ['latitude', 'longitude', 'name', 'host_name', 'price', 'bedrooms','neighbourhood_group', 'neighbourhood','price_level','antiguedad_ex','accommodates','has_pet', 'review_scores_rating','room_type']
-    listings = pd.read_csv(r'C:\Users\leo21\Desktop\Upgrade_hub\modulo2\proyecto_2\LA_clean.csv', usecols=columns_to_load)
+    listings = pd.read_csv(r'LA-Airbnb\data\LA_clean.csv', usecols=columns_to_load)
     # Dividir la pantalla en dos columnas
     map_column, filter_column = st.columns([3, 1])
     
@@ -119,19 +121,23 @@ def show_interactive_map():
         folium.LayerControl().add_to(m)
         st_folium(m, width=700, height=500)
 
+
     
 # Definir el contenido de la barra lateral (sidebar)
-st.sidebar.image('LA-Airbnb\data\LA_clean.csv', width=150)
-st.sidebar.title("Navigation")
-page_options = ["Home", "Analysis", "Interactive Map"]
+
+
+
+st.sidebar.image(r"LA-Airbnb\.images\airbnbwhite.png", width=150)
+st.sidebar.title("Selección")
+page_options = ["Inicio", "Análisis", "Mapa interactivo"]
 page_selection = st.sidebar.radio("Go to", page_options)
 
 # Mostrar la página seleccionada
-if page_selection == "Home":
+if page_selection == "Inicio":
     show_home()
-elif page_selection == "Analysis":
+elif page_selection == "Análisis":
     show_analysis()
-elif page_selection == "Interactive Map":
+elif page_selection == "Mapa interactivo":
     show_interactive_map()
-elif page_selection == "Dashboard":
+elif page_selection == "WordCloud de Amenities":
     show_dashboard()    
