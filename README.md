@@ -12,8 +12,7 @@ Características
 📊 Gráficos interactivos: Visualizaciones de las variables categóricas y numéricas.
 🌍 Análisis espacial: Mapas interactivos que muestran la distribución geográfica de los anuncios.
 📝 Conclusiones: Un resumen de las observaciones clave sobre tendencias de precios y tipos de alojamiento.
-🧮 Modelos predictivos: Modelos de regresión para predecir precios en función de diversas variables.
-Cómo ejecutar el proyecto
+
 
 ### Requisitos previos
 
