@@ -1,7 +1,5 @@
 streamlit
 pandas
 folium
-geopandas
-branca
 streamlit-folium
 wordcloud

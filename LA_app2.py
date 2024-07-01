@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import folium
 from folium.plugins import FastMarkerCluster
-import geopandas as gpd
-from branca.colormap import LinearColormap
 from streamlit_folium import st_folium
 
 # Configuración de la página
