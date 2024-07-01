@@ -20,7 +20,7 @@ Utilizamos el conjunto de datos de [Inside Airbnb](http://insideairbnb.com/get-t
 # Función para cargar el archivo listings.csv localmente
 @st.cache_data
 def load_data():
-    return pd.read_csv('data/LA_clean.csv')
+    return pd.read_csv(r'data/LA_clean.csv')
 
 # Cargar los datos
 LA = load_data()
