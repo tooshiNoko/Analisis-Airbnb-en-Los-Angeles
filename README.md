@@ -27,7 +27,7 @@ Streamlit
 
 
 ### Despliegue
-La aplicación está desplegada en Streamlit. Puedes verla en acción [aquí](https://la-airbnb-3vygc4eypkws6cbebj9n3a.streamlit.app/).
+La aplicación está desplegada en Streamlit. Puedes verla en acción [aquí](https://airbnb-la.streamlit.app/).
 
 ### Proyecto Colaborativo
 Este proyecto ha sido realizado en colaboración con [Enol Sutil](https://github.com/Enolsutil13) y [Juan Pedro Marquez](https://github.com/JuanPedroMarquez/) .
