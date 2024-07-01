@@ -108,7 +108,7 @@ def show_interactive_map():
         (listings['antiguedad_ex'].between(antiguedad_ex[0], antiguedad_ex[1]-1)) &
         (listings['accommodates'].between(accommodates[0], accommodates[1]-1)) &
         (listings['has_pet'] == (has_pet == 'Sí') if has_pet != 'Todos' else True) &
-        (listings['review_scores_rating'].between(review_scores_rating[0], review_scores_rating[1])) &
+        (listings['review_scores_rating'].between(review_scores_rating[0], review_scores_rating[5])) &
         (listings['room_type'] == room_type if room_type != 'Todos' else True)
     ]
 
