@@ -20,7 +20,7 @@ Utilizamos el conjunto de datos de [Inside Airbnb](http://insideairbnb.com/get-t
 # Función para cargar el archivo listings.csv localmente
 @st.cache_data
 def load_data():
-    return pd.read_csv(r'LA_clean.csv')
+    return pd.read_csv(r'LA-Airbnb\data\LA_clean.csv')
 
 # Cargar los datos
 LA = load_data()
@@ -32,7 +32,7 @@ def show_home():
     st.title("Inicio")
     st.header("Bienvenido al Análisis de Airbnb en Los Ángeles")
     st.write("Utilice el menú lateral para navegar a través de diferentes secciones y obtener información específica.")
-    #st.image('data/los_angeles.jpg', caption='Los Ángeles')
+    
 
     with st.expander('Origen de los Datos'):
         st.markdown("""
@@ -46,7 +46,7 @@ def show_home():
 
     with st.expander("Ruta de los vecindarios"):
         st.write("Los vecindarios en Los Ángeles ofrecen una diversidad única, desde áreas urbanas hasta zonas más residenciales. Quizás los barrios más exclusivos y conocidos sean Bel-Air, Hollywood y Beverly hills.")
-        #st.image('data/la_neighborhoods.jpg', caption='Barrios de Los Ángeles')
+        
     
     with st.expander("Wordcloud"):
         show_dashboard()
